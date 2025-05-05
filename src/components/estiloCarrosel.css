@@ -9,7 +9,7 @@
     font-size: 18px;
     background: #fff;
   
-    /* Center slide text vertically */
+  
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,6 +19,6 @@
     width: 80%;
     height: 100%;
     object-fit: cover;
-    border-radius: 20px; /* opcional */
+    border-radius: 20px; 
   }
   

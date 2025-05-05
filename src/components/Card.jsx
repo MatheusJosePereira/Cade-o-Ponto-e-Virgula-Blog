@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { db } from '../firebase.js';
 import { collection, getDocs } from 'firebase/firestore';
-import { Link } from 'react-router-dom'; // Certifique-se de que o Link é do react-router-dom
+import { Link } from 'react-router-dom'; 
 
 function Card() {
     const [posts, setPosts] = useState([]);
@@ -10,11 +10,11 @@ function Card() {
         const fetchPosts = async () => {
             const querySnapshot = await getDocs(collection(db, 'posts'));
             const postsData = querySnapshot.docs.map(doc => ({
-                id: doc.id, // <- importante
+                id: doc.id, 
                 ...doc.data()
             }));
               
-            setPosts(postsData); // Armazenar os dados dos posts
+            setPosts(postsData); 
         };
         fetchPosts();
     }, []);
@@ -26,9 +26,9 @@ function Card() {
                     key={index} 
                     to={`/Detalhes/${post.id}`} 
                     className="w-full sm:w-80 md:w-96 lg:w-[400] rounded-md shadow-lg cardContainer" 
-                    style={{ display: 'block', cursor: 'pointer' }} // Garantindo que seja clicável
+                    style={{ display: 'block', cursor: 'pointer' }}
                 >
-                    {/* Exibindo a imagem usando a URL do Firestore */}
+                    {/* Exibindo a imagem post */}
                     <img className="w-full h-64 object-cover rounded-t imagem" src={post.imgUrl} alt={post.titulo} />
 
                     <div className="px-6 py-4">
