@@ -8,14 +8,29 @@ function Card() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const querySnapshot = await getDocs(collection(db, 'posts'));
-            const postsData = querySnapshot.docs.map(doc => ({
-                id: doc.id, 
-                ...doc.data()
-            }));
+          const querySnapshot = await getDocs(collection(db, 'posts'));
+          const postsData = querySnapshot.docs.map(doc => {
+            const data = doc.data();
+            return {
+              id: doc.id,
+              ...data,
               
-            setPosts(postsData); 
+              dataPublicacao: data.dataPublicacao ? data.dataPublicacao.toDate() : null,
+            };
+          });
+      
+          // Ordenando os posts pela dataPublicacao (da mais recente para a mais antiga)
+          const sortedPosts = postsData.sort((a, b) => {
+            if (a.dataPublicacao && b.dataPublicacao) {
+              return b.dataPublicacao - a.dataPublicacao; 
+            }
+            return 0;
+          });
+
+          
+          setPosts(sortedPosts.slice(0, 6)); 
         };
+      
         fetchPosts();
     }, []);
 
@@ -29,7 +44,9 @@ function Card() {
                     style={{ display: 'block', cursor: 'pointer' }}
                 >
                     {/* Exibindo a imagem post */}
-                    <img className="w-full h-64 object-cover rounded-t imagem" src={post.imgUrl} alt={post.titulo} />
+                    {post.imgUrl && (
+                        <img className="w-full h-64 object-cover rounded-t imagem" src={post.imgUrl} alt={post.titulo} />
+                    )}
 
                     <div className="px-6 py-4">
                         {/* Exibindo o título do post */}
@@ -38,11 +55,18 @@ function Card() {
                         {/* Exibindo a descrição do post */}
                         <p className="text-gray-700 text-base">{post.descricao}</p>
                         <p className='text-gray-500 text-base mt-2'>Autor: {post.autor}</p>
+                        
+                        {/* Exibindo a data de publicação formatada */}
+                        {post.dataPublicacao && (
+                            <p className='text-gray-500 text-sm mt-2'>
+                                {post.dataPublicacao.toLocaleDateString('pt-BR')}
+                            </p>
+                        )}
                     </div>
 
                     <div className="px-6 pt-4 pb-2">
                         {/* Exibindo as tags */}
-                        {post.tags.map((tag, tagIndex) => (
+                        {Array.isArray(post.tags) && post.tags.map((tag, tagIndex) => (
                             <span key={tagIndex} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
                                 #{tag}
                             </span>

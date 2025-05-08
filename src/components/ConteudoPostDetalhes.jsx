@@ -4,6 +4,7 @@ import { db } from '../firebase';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw'; // Biblioteca para ler html no .md
+import Footer from './Footer';
 
 function ConteudoPostDetalhes() {
   const { id } = useParams(); 
@@ -36,11 +37,14 @@ function ConteudoPostDetalhes() {
   }, [id]);
 
   return (
+    
     <div className="prose mx-auto p-5">
       <ReactMarkdown rehypePlugins={[rehypeRaw]}>
         {conteudo}
       </ReactMarkdown>
+      
     </div>
+    
   );
 }
 

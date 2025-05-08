@@ -28,14 +28,14 @@ function Header() {
         <div className="flex-1 flex justify-center">
           <ul className="flex gap-10 text-black">
             <li>Pagina Inicial</li>
-            <li>Livros Lidos</li>
+            <li>Livros</li>
             <li>
               <div className="flex items-center gap-1 cursor-pointer">
                 <span>Categorias</span>
                 <ChevronDown className="text-blue-600 w-4 h-4" />
               </div>
             </li>
-            <li>Sobre Mim</li>
+            <li>Quem sou</li>
           </ul>
         </div>
 

@@ -4,6 +4,7 @@ import SobreMim from "./components/SobreMim"
 import "./App.css"
 import Newsletter from "./components/Newsletter"
 import LivrosSwiper from "./components/LivrosCarosel"
+import Footer from "./components/Footer"
 
 
 function App(){
@@ -15,6 +16,7 @@ function App(){
       <MaisRecentes/>
       <LivrosSwiper/>
       <Newsletter/>
+      <Footer/>
     </main>
   )
 }
