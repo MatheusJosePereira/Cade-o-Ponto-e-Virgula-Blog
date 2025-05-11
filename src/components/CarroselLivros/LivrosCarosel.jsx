@@ -5,7 +5,7 @@ import 'swiper/css/pagination'
 import { Pagination } from 'swiper/modules'
 import { useEffect, useState } from 'react'
 import { collection, getDocs } from 'firebase/firestore'
-import { db } from '../firebase.js'
+import { db } from '../../firebase.js'
 
 export default function LivrosSwiper() {
   const [livros, setLivros] = useState([])

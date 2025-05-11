@@ -2,7 +2,7 @@ import { Navigation, Pagination, Autoplay} from 'swiper/modules';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import imagem from "../assets/Principal.jpg"
+import imagem from "../../assets/Principal.jpg"
 
 import 'swiper/css';
 import 'swiper/css/navigation';

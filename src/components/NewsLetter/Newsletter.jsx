@@ -1,4 +1,4 @@
-import newsletter from "../assets/Newsletter.jpg"
+import newsletter from "../../assets/Newsletter.jpg"
 import "./Newsletter.css"
 
 function Newsletter(){
