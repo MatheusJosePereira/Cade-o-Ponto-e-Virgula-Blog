@@ -4,6 +4,8 @@ import { doc, getDoc } from "firebase/firestore";
 import { useParams } from "react-router-dom";
 import ConteudoPostDetalhes from "./ConteudoPostDetalhes.jsx";
 import NavBar from "../NavBar/NavBar.jsx";
+import Footer from "../Footer/Footer.jsx";  // Importando o Footer
+import Spinner from "../TelaCarregamento/Spinner.jsx";
 
 function PostDetalhes() {
   const { id } = useParams(); // ID do post via rota
@@ -34,29 +36,38 @@ function PostDetalhes() {
     fetchPost();
   }, [id]);
 
-  if (!post) return <p className="text-center mt-10">Carregando...</p>;
+  if (!post) return <div className="w-full h-screen flex justify-center items-center"><Spinner/></div>;
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <NavBar />
-
-      <section style={{ backgroundColor: "#f9f9f9" }} className="w-full py-10">
-        <div className="max-w-4xl mx-auto px-6">
+      <section className="w-full py-10 bg-[#f9f9f9] flex-grow">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Imagem do post */}
           {post.imgUrl && (
             <img
               src={post.imgUrl}
               alt={post.titulo}
-              className="w-full h-[500px] rounded-lg mb-6"
+              className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-lg mb-6"
             />
           )}
+
+          {/* Título e informações do post */}
           <h2 className="text-center text-4xl font-bold mb-6">{post.titulo}</h2>
           <p className="text-center text-gray-700 leading-7 whitespace-pre-line">
             Publicado dia {post.formattedDate}
             <br /> Por: <span className="font-bold">{post.autor}</span>
           </p>
-          <ConteudoPostDetalhes />
+
+          {/* Conteúdo do post */}
+          <div className="mt-6 text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
+            <ConteudoPostDetalhes />
+          </div>
         </div>
       </section>
+
+      {/* Footer no final da página */}
+      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import CarroselHeader from "../Cards/CarroselHeader";
+import CarroselHeader from "./CarroselHeader";
 import NavBar from "../NavBar/NavBar";
 
 function Header() {

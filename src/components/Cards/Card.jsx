@@ -36,48 +36,46 @@ function Card() {
   }, []);
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 justify-center">
       {posts.map((post, index) => (
         <Link
           key={index}
           to={`/Detalhes/${post.id}`}
-          className="w-full sm:w-80 md:w-96 lg:w-[400] rounded-md shadow-2xl cardContainer transform transition-transform duration-300 hover:scale-110 "
+          className="w-full max-w-xs mx-auto rounded-md shadow-lg transform transition-transform duration-300 hover:scale-105 hover:shadow-xl"
           style={{ display: "block", cursor: "pointer" }}
         >
-          {/* Exibindo a imagem post */}
+          {/* Exibindo a imagem do post */}
           {post.imgUrl && (
             <img
-              className="w-full h-64 object-cover rounded-t imagem"
+              className="w-full h-48 object-cover rounded-t"
               src={post.imgUrl}
               alt={post.titulo}
             />
           )}
 
-          <div className="px-6 py-4">
+          <div className="px-4 py-4 bg-white">
             {/* Exibindo o título do post */}
-            <div className="font-bold text-center text-xl mb-2">
-              {post.titulo}
-            </div>
+            <div className="font-bold text-center text-xl mb-2">{post.titulo}</div>
 
             {/* Exibindo a descrição do post */}
-            <p className="text-gray-700 text-base">{post.descricao}</p>
-            <p className="text-gray-500 text-base mt-2">Autor: {post.autor}</p>
+            <p className="text-gray-700 text-sm">{post.descricao}</p>
+            <p className="text-gray-500 text-xs mt-2">Autor: {post.autor}</p>
 
             {/* Exibindo a data de publicação formatada */}
             {post.dataPublicacao && (
-              <p className="text-gray-500 text-sm mt-2">
+              <p className="text-gray-500 text-xs mt-2">
                 {post.dataPublicacao.toLocaleDateString("pt-BR")}
               </p>
             )}
           </div>
 
-          <div className="px-6 pt-4 pb-2">
+          <div className="px-4 pt-4 pb-2 bg-white">
             {/* Exibindo as tags */}
             {Array.isArray(post.tags) &&
               post.tags.map((tag, tagIndex) => (
                 <span
                   key={tagIndex}
-                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                  className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 mr-2 mb-2"
                 >
                   #{tag}
                 </span>
