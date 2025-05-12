@@ -64,7 +64,8 @@ function NavBar() {
           <div className='flex gap-4'>
             <img src={zapzap} className='w-8' alt='ZapZap' />
             <img src={instagram} className='w-8' alt='Instagram' />
-            <img src={linkedin} className='w-8' alt='LinkedIn' />
+           <a target="_blank" 
+          rel="noopener noreferrer" href="https://www.linkedin.com/in/matheusjosepereira/"><img src={linkedin} className='w-8' alt='LinkedIn' /></a>
           </div>
         </div>
       )}
