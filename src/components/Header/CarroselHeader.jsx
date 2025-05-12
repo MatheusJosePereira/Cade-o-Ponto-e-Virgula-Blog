@@ -42,7 +42,7 @@ function CarroselHeader() {
     >
       {slidesData.map((slide, index) => (
         <SwiperSlide key={index}>
-          <div className='relative w-full h-[50vh] md:h-[90vh] flex items-center justify-center bg-blue-400'>
+          <div className='relative w-full h-[80vh] md:h-[130vh] flex items-center justify-center bg-blue-400'>
             <img src={slide.image} alt={slide.title} className='absolute inset-0 w-full h-full object-cover z-0' />
             <div className='relative z-10 p-4 md:p-6 bg-black/50 rounded-md text-center'>
               <h2 className='text-white text-xl md:text-3xl font-bold'>{slide.title}</h2>

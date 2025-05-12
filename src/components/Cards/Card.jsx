@@ -58,12 +58,12 @@ function Card() {
             <div className="font-bold text-center text-xl mb-2">{post.titulo}</div>
 
             {/* Exibindo a descrição do post */}
-            <p className="text-gray-700 text-sm">{post.descricao}</p>
-            <p className="text-gray-500 text-xs mt-2">Autor: {post.autor}</p>
+            <p className="text-gray-700 text-sm md:text-base">{post.descricao}</p>
+            <p className="text-gray-500 text-xs md:text-base mt-2">Autor: {post.autor}</p>
 
             {/* Exibindo a data de publicação formatada */}
             {post.dataPublicacao && (
-              <p className="text-gray-500 text-xs mt-2">
+              <p className="text-gray-500 text-xs md:text-base mt-2">
                 {post.dataPublicacao.toLocaleDateString("pt-BR")}
               </p>
             )}

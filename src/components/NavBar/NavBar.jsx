@@ -12,12 +12,12 @@ function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className='positon fixed z-50 w-full'>
       <div className='w-full h-8 bg-purple-600'></div>
-      <nav className='flex items-center justify-between h-16 px-4 bg-white shadow-md'>
+      <nav className=' flex items-center justify-between h-16 px-4 bg-white shadow-md'>
         {/* Logo */}
         <div className='flex items-center justify-center'>
-          <img className='w-128 me-34 md:w-48' src={logoBlog} alt='Logo' />
+          <img className='w-128 me-34 md:w-90 md:me-0' src={logoBlog} alt='Logo' />
         </div>
 
         {/* Hamburger Menu*/}
@@ -28,7 +28,7 @@ function NavBar() {
         </div>
 
         {/* Navegação - Desktop */}
-        <div className='hidden md:flex gap-5'>
+        <div className='hidden md:flex md:me-40 gap-5'>
           <ul className='flex gap-10 text-black'>
             <Link to='/'>Pagina Inicial</Link>
             <li>Livros</li>
@@ -44,13 +44,14 @@ function NavBar() {
         <div className='hidden md:flex gap-4'>
           <img src={zapzap} className='w-8' alt='ZapZap' />
           <img src={instagram} className='w-8' alt='Instagram' />
-          <img src={linkedin} className='w-8' alt='LinkedIn' />
+          <a target="_blank" 
+          rel="noopener noreferrer" href="https://www.linkedin.com/in/matheusjosepereira/"><img src={linkedin} className='w-8' alt='LinkedIn' /></a>
         </div>
       </nav>
 
       {/* Navegação - Mobile */}
       {isOpen && (
-        <div className='flex flex-col items-start gap-4 p-4 md:hidden'>
+        <div className='flex flex-col bg-white shadow-md items-start gap-4 p-4 md:hidden'>
           <ul className='flex flex-col gap-2 text-black'>
             <Link to='/'>Pagina Inicial</Link>
             <li>Livros</li>

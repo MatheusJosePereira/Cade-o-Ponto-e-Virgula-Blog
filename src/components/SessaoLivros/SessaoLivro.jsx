@@ -6,7 +6,7 @@ function SessaoLivro() {
       {/* Seção de Imagem */}
       <div className="flex items-center w-full md:w-[700px] p-4 justify-center">
         <img 
-          className="rounded-[150px] object-cover w-[250px] h-[250px] md:w-[300px] md:h-[300px]" 
+          className="rounded-[150px] object-cover w-[250px] h-[250px] md:w-[750px] md:h-[500px]" 
           src={LivroSessao} 
           alt="Imagem de livros"
         />

@@ -3,10 +3,10 @@ import "./Newsletter.css";
 
 function Newsletter() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center bg-purple-300 mt-10 px-4 sm:px-8 py-8 md:h-[450px]">
+    <div className="flex flex-col md:flex-row items-center justify-center bg-purple-300 mt-10 px-4 sm:px-8 py-8 md:h-[450px] md:gap-20">
       {/* Seção do formulário */}
       <div className="bg-white rounded-2xl border shadow-xl p-8 max-w-md w-full mb-8 md:mb-0">
-        <div className="flex flex-col items-center space-y-4">
+        <div className="flex flex-col items-center space-y-4 md:me">
           <h1 className="font-bold text-2xl text-gray-700 text-center">
             Vamos trocar ideias?
           </h1>
@@ -27,7 +27,7 @@ function Newsletter() {
       {/* Seção da imagem */}
       <div className="w-full sm:w-3/4 md:w-1/2">
         <img
-          className="w-full h-auto max-h-[300px] object-cover rounded-2xl"
+          className="w-full h-auto max-h-[300px] object-cover rounded-2xl md: max-h-[400px]"
           src={newsletter}
           alt="Newsletter"
         />

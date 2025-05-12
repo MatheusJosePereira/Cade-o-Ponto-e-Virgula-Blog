@@ -48,7 +48,7 @@ function PostDetalhes() {
             <img
               src={post.imgUrl}
               alt={post.titulo}
-              className="w-full h-[300px] sm:h-[400px] md:h-[500px] object-cover rounded-lg mb-6"
+              className="w-full h-[500px] sm:h-[400px] md:h-[600px] object-cover rounded-lg mb-6"
             />
           )}
 
